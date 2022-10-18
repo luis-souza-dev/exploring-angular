@@ -1,0 +1,13 @@
+<button class="rounded
+    border
+    border-gray-500
+    h-full w-full p-2 
+    transition-colors 
+    duration-75 
+    ease-in" 
+    [ngClass]="appliableClasses" 
+    (click)="emit($event)"
+    [disabled]="disableButton">
+    <ng-content></ng-content>
+    
+</button>
