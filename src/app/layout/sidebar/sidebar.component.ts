@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter, map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  @Input() path: string = '';
+
+  isRouteActive$: Observable<boolean>;
+
+  constructor(private activedRoute: ActivatedRoute, private Router: Router) { }
 
   ngOnInit(): void {
+    this.isRouteActive$ = this.Router.events.pipe(filter(event => event instanceof NavigationEnd), map((event: NavigationEnd)=> event.url === this.path));
   }
 
+  navigate(){
+    this.Router.navigate([this.path])
+  }
 }

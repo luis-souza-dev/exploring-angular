@@ -14,25 +14,26 @@ export class ButtonComponent implements OnInit {
 
   @Input() disableButton = false;
 
-  appliableClasses = 'bg-sky-400 ';
+  appliableClasses = 'bg-sky-500 ';
+  auxClass = 'hover:shadow-sm hover:shadow-black hover:border-gray-700 hover:font-medium'
   constructor() { }
 
   ngOnInit(): void {
     switch(this.type){
       case ButtonTypes.success:
-        this.appliableClasses = `bg-green-400 ${this.disableButton ? 'cursor-not-allowed': 'hover:bg-green-500'}`;
+        this.appliableClasses = `bg-green-500 ${this.disableButton ? 'cursor-not-allowed': this.auxClass}`;
       break;
       case ButtonTypes.warning:
-        this.appliableClasses = `bg-yellow-300 ${this.disableButton ? 'cursor-not-allowed': 'hover:bg-yellow-400'}`;
+        this.appliableClasses = `bg-yellow-300 ${this.disableButton ? 'cursor-not-allowed': this.auxClass}`;
       break;
       case ButtonTypes.danger:
-        this.appliableClasses = `bg-red-600 ${this.disableButton ? 'cursor-not-allowed': 'hover:bg-red-700 '}`;
+        this.appliableClasses = `bg-red-600 ${this.disableButton ? 'cursor-not-allowed': this.auxClass}`;
       break;
       case ButtonTypes.gray:
-        this.appliableClasses = `bg-gray-300 ${this.disableButton ? 'cursor-not-allowed': 'hover:bg-gray-400'}`;
+        this.appliableClasses = `bg-gray-300 ${this.disableButton ? 'cursor-not-allowed': this.auxClass}`;
       break;
       default:
-        this.appliableClasses += this.disableButton ? '' : 'hover:bg-sky-500';
+        this.appliableClasses += this.disableButton ? '' : this.auxClass;
     }
   }
 
