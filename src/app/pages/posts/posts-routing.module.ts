@@ -9,22 +9,16 @@ const routes: Routes = [
     {
         path: '',
         component: PostsComponent,
-        children: [
-            {
-                path:'add',
-                component: PostFormComponent,
-                pathMatch: 'full'
-            },
-            {
-                path:':postId',
-                component: PostDetailsComponent,
-            },
-            {
-                path:'',
-                component: PostsListComponent
-            }
-        ]
     },
+    {
+        path:'add',
+        component: PostFormComponent,
+        pathMatch: 'full'
+    },
+    {
+        path:':postId',
+        component: PostDetailsComponent,
+    }
 ]
 
 @NgModule({

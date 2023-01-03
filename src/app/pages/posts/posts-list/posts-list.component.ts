@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { PostsService } from '../services/posts.service';
 import { ButtonTypes } from 'src/app/shared/enums';
+import { Post } from 'src/app/shared/interfaces';
 
 @Component({
   selector: 'app-posts-list',
@@ -11,7 +12,7 @@ import { ButtonTypes } from 'src/app/shared/enums';
 })
 export class PostsListComponent implements OnInit {
 
-  posts$: Observable<any>;
+  posts$: Observable<Post[]>;
 
   stringTeste = 'teste';
 

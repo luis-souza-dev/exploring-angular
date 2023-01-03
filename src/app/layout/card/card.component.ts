@@ -23,7 +23,6 @@ export class CardComponent implements OnInit {
   }
 
   goToPost(){
-    console.log('fa')
     this.navigation.emit(this.dataId);
   }
 

@@ -1,4 +1,4 @@
 export enum DataType {
-    post,
-    user
+    POST = 'POST',
+    USER = 'USER'
 }

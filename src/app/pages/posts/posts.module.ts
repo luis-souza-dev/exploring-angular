@@ -9,20 +9,24 @@ import { PostsService } from './services/posts.service';
 import { CardModule } from 'src/app/layout/card/card.module';
 import { PostDetailsComponent } from './post-details/post-details.component';
 import { ButtonModule } from 'src/app/layout/button/button.module'
+import { PostTagsDirective } from 'src/app/shared/directives/post-tag.directive';
+import { CardDirective } from 'src/app/shared/directives/card.directive';
 
 @NgModule({
   declarations: [
     PostsComponent,
     PostsListComponent,
     PostFormComponent,
-    PostDetailsComponent
+    PostDetailsComponent,
+    PostTagsDirective,
+    CardDirective
   ],
   imports: [
     CommonModule,
     PostsRoutingModule,
     HttpClientModule,
     CardModule,
-    ButtonModule
+    ButtonModule,
   ],
   exports: [
     PostFormComponent

@@ -1,11 +1,18 @@
-<span class="w-4/6 mx-auto grid grid-cols-12 mb-8 ">
-    <div class="col-start-11 col-span-2">
+<span class="grid grid-cols-12 mb-8 ">
+    <div class="col-start-10 col-span-2">
         <app-button (eventEmitter)="openForm()" [type]="buttonTypes.default">
             ADD POST
         </app-button>
     </div>
 </span>
 <ng-container *ngFor="let post of posts$ | async">
-    <app-card [dataTitle]="post.title" [dataPreview]="post.body" (navigation)="navigation(post.id)">
-    </app-card>
+    <div *appCard>
+        <div *ngFor="let tag of post.tags" >
+            <span [postTags]="tag">
+                {{ tag }}
+            </span>
+        </div>
+        <app-card [dataTitle]="post.title" [dataPreview]="post.body" (navigation)="navigation(post.id)">
+        </app-card>
+    </div>
 </ng-container>
